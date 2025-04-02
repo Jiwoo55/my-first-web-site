@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>WEB- WELCOME</title>
-    <meta charset="utf-8">
-</head>
+    <body>
+        <div id = "root"></div>
+    </body>
 
-<body>
-    <h1><a href="index.html">WEB</a></h1>
-<ol> <!--ordered list-->
-    <li><a href="1.html">HTML</a></li>
-    <li><a href="2.html">CSS</a></li>
-    <li><a href="3.html">Javascript</a></li>
-</ol>
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // html 대신 react로 코드를 짜기
+        const root = document.getElementById("root");
+        function Title () {
+            return (
+                <h3 id = "title" onMouseEnter = {() => console.log("mouse enter")}>
+                Hello I'm a title
+            </h3>
+            );
+        }
+        const Button = () => (
+            <button
+            style ={{
+                backgroundColor: "tomato",
+            }} 
+            onClick ={() => console.log("im clicked")}
+            >
+            Click me
+            </button>
+        );
 
-<h2>WEB</h2>
-<p>
-    The web, or World Wide Web (WWW), is a system of interconnected websites that allow users to access information online. It is a subset of the internet. 
-</p>
-</body>
+        const Container = () => (
+            <div>
+                <Title />
+                <Button />
+            </div>
+        );
+        ReactDOM.render(<Container />, root);
+    </script>
+
 </html>
